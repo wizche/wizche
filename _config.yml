@@ -1,0 +1,13 @@
+# Site settings
+title: Coding Stuffs
+email: sergio.paganoni@gmail.com
+description:
+  Program received signal SIGSEGV, Segmentation fault.
+  Powered by Jekyll & GitHub Pages
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://blog.wizche.ch" # the base hostname & protocol for your site
+twitter_username: wizche
+github_username:  wizche
+
+# Build settings
+markdown: redcarpet
