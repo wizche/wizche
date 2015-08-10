@@ -11,3 +11,5 @@ github_username:  wizche
 
 # Build settings
 markdown: redcarpet
+redcarpet:
+  extensions: ["tables"]
