@@ -8,9 +8,10 @@ categories: fobber malware analysis
 After reading the [Malwarebytes blog post](https://blog.malwarebytes.org/intelligence/2015/06/elusive-hanjuan-ek-caught-in-new-malvertising-campaign/) describing Fobber, a new variant of Tinba, I wanted to have a look at it myself (MD5 `691ce6807925fed03cb61f4add0e5ffd`).
 
 Instead of unpacking all the code at once in memory, Fobber uses a cleverer way to make the analysis much more difficult. Before any code can be executed, Fobber performs the following:
-- Decrypt the function to be executed
-- Execute it
-- Re-encrypt the function
+
+* Decrypt the function to be executed
+* Execute it
+* Re-encrypt the function
 
 In this post, let's have a look on how the decryption routine works.
 On the screenshot below we see OllyDbg stopped before the decryption function at `0x009E2592` is getting called.
