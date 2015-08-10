@@ -1,0 +1,12 @@
+---
+layout: post
+title: Robotics Invention System 2.0 Freeze XP (Hyperthreaded CPU)
+date: '2009-01-20T15:15:00.000-08:00'
+author: Wizche
+tags: 
+modified_time: '2009-01-21T12:22:44.622-08:00'
+blogger_id: tag:blogger.com,1999:blog-6991263519641111952.post-5955855061256020045
+blogger_orig_url: http://blog.wizche.ch/2009/01/robotics-invention-system-20-freeze-xp.html
+---
+
+Hi,<br /><br />I had a bad time trying to make <span style="font-weight: bold;">Mindstorm RIS 2.0</span> works on Windows XP (SP2).<br />During setup of the IR tower (after main program installation), precisely when program first tried to comunicate to device, computer was <span style="font-weight: bold;">freezed</span><span style="font-weight: bold;">!<br /><br /></span>As found in internet this is caused while accessing the IR Tower in an <span style="font-weight: bold;">Hyperthreaded </span>(<a href="http://en.wikipedia.org/wiki/Hyper-threading">HT</a>) CPU's system.<br /><br />I've found some <span style="font-weight: bold;">"work-around"</span> navigating the internet:<br />1) Setting RIS2.exe in compatibility mode Windows 98/ME and 256 color mode didn't worked<br />2) Installing Windows 2000 instead of XP (like jumping in the past) didn't tried<br />3) Disabling HT in Bios and then repair XP installation (too long)<br />4) Buy an IR Tower SERIAL (not to consider)<br /><br />I was pretty discouraged by this results until, at the end, I founded this:<br /><span style="font-weight: bold;">THE SOLUTION: </span><a href="http://elvis.rowan.edu/%7Ekay/lego/RIS_installation_info.html">http://elvis.rowan.edu/~kay/lego/RIS_installation_info.html</a><br /><br />Following this step-by-step tutorial made all perfectly functioning in about <span style="font-style: italic;">5 minutes</span> ! <span style="font-weight: bold;">Thanks</span><br /><br />The <a href="http://elvis.rowan.edu/%7Ekay/lego/RIS20XPPatch.zip">first XP-Patch</a> is pretty common and easy to find over the internet (in fact this patch just stop the launch <em>screen</em> from opening after every boot)<br /><br />What make all <span style="font-weight: bold;">working </span>is the <a href="http://elvis.rowan.edu/%7Ekay/lego/LEGOTower.zip">LEGOTower.zip</a> who include the <span style="font-weight: bold;">new version</span> of the <span style="font-weight: bold;">driver </span>for the IR Tower!<br /><br />Enjoy!<br /><br /><span style="font-family:monospace;"></span>

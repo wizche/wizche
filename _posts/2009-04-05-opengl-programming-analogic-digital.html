@@ -1,0 +1,14 @@
+---
+layout: post
+title: Analog / Digital Clock - OpenGL Programming
+date: '2009-04-05T06:29:00.000-07:00'
+author: Wizche
+tags:
+- OpenGL
+modified_time: '2009-04-05T06:52:29.892-07:00'
+thumbnail: http://3.bp.blogspot.com/_cXYmdFluLpw/Sdi3f_ndPdI/AAAAAAAAASQ/HSnT7TuvVP8/s72-c/clockss.png
+blogger_id: tag:blogger.com,1999:blog-6991263519641111952.post-9197837177052061110
+blogger_orig_url: http://blog.wizche.ch/2009/04/opengl-programming-analogic-digital.html
+---
+
+<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_cXYmdFluLpw/Sdi3f_ndPdI/AAAAAAAAASQ/HSnT7TuvVP8/s1600-h/clockss.png"><img style="margin: 0pt 10px 10px 0pt; float: left; cursor: pointer; width: 192px; height: 200px;" src="http://3.bp.blogspot.com/_cXYmdFluLpw/Sdi3f_ndPdI/AAAAAAAAASQ/HSnT7TuvVP8/s200/clockss.png" alt="" id="BLOGGER_PHOTO_ID_5321204720018996690" border="0" /></a>Here a simple exercise I had to do for Computer Graphics class.<br /><br />An implementation of an analog clock synchronised with local system time. (I used the tm structure, so is working only on *nix like operating system).<br /><br />I resync my clock each minute using Synchronise(). (not very needed cause<br />glutTimer is quite reliable)<br /><br /><br />To compile:<br />$ gcc -o clock -lGL -lglut clock.c<br /><br /><a href="http://wizche.googlepages.com/clock.c">Download source (clock.c)</a><br /><br /><br /><br /><br /><a id="publishButton" class="cssButton" href="javascript:void(0)" target="" onclick="if (this.className.indexOf(&quot;ubtn-disabled&quot;) == -1) {var e = document['stuffform'].publish;(e.length) ? e[0].click() : e.click(); if (window.event) window.event.cancelBubble = true; return false;}"></a>

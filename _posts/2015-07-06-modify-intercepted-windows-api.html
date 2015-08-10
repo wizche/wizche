@@ -1,0 +1,16 @@
+---
+layout: post
+title: Modify intercepted Windows API functions parameters with WinAppDbg
+date: '2015-07-06T03:58:00.002-07:00'
+author: Wizche
+tags:
+- winappdbg
+- reverse-engineering
+- python
+- malware
+modified_time: '2015-07-06T05:18:56.834-07:00'
+blogger_id: tag:blogger.com,1999:blog-6991263519641111952.post-8781468326967223488
+blogger_orig_url: http://blog.wizche.ch/2015/07/modify-intercepted-windows-api.html
+---
+
+If you are a malware analyst, you probably already came across <a href="http://winappdbg.sourceforge.net/index.html#">WinAppDbg</a>.<br />This module allows you to quickly script instrumentation code in python under Windows.<br /><br />One of its (many) powerful features is the ability to quickly <a href="http://winappdbg.sourceforge.net/Debugging.html#example-9-intercepting-api-calls">intercept Windows API calls</a>. <br/>Let's have a look at a small example showing how to intercept <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms686298(v=vs.85).aspx">Sleep</a> calls.<br /><br /><pre name="code" class="python"><br />class MyEventHandler(EventHandler):<br />    apiHooks = {<br />        'kernel32.dll': [<br />            ("Sleep", 1)<br />        ]<br />    }<br /><br /># Intercept the API before the actual call is being made to Sleep ('pre' callback)<br />def pre_Sleep(self, event, retval, dwMilliseconds):<br />    thread = event.get_thread()<br />    process = event.get_process()<br /><br />    print "Intercepted Sleep call of %d milliseconds"<br /></pre> Many malware use the <tt>Sleep</tt> function to delay an operation on the infected machine (e.g. to timeout dynamic analysis or to interval home-beaconing).<br/>With WinAppDbg we can modify the function parameter (<tt>dwMilliseconds</tt>) before the actual call is being made to Sleep().<br/> To do so we simply access the stack frame and write a new <tt>DWORD</tt> with value <tt>0x00</tt> to <tt>EBP+4</tt><br/><pre name="code" class="python"><br /># Access first parameter on the stack: EBP + 4<br />stack_offset = thread.get_sp() + 4<br /># Write the new value at that address (e.g. 0 milliseconds)<br />process.write_dword(stack_offset, 0x00)<br /></pre>
