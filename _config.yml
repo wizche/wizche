@@ -8,6 +8,7 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://blog.wizche.ch" # the base hostname & protocol for your site
 twitter_username: wizche
 github_username:  wizche
+linkedin: sergiopaganoni
 
 # Build settings
 markdown: redcarpet
